@@ -43,7 +43,7 @@ def main():
 
     fasta = read_fasta(fasta_path)
     background = shuffle_fasta(fasta, ntimes)
-    pwm = PWM(path, form='pcm')
+    pwm = PWM(matrix_path, form='pcm')
     pwm.calculate_table(path_to_promoters)
     threshold = pwm.choose_threshold(fpr_threshold)
     scores, number_of_sites = pwm.calculate_scores_upper_threshold(fasta, threshold)
