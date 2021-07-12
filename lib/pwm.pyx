@@ -15,9 +15,7 @@ cdef class PWM:
     def __init__(self, path, form):
         if form == 'pcm':
             self.__matrix = PWM.__read_matrix(path)
-            print(self.__matrix)
             self.__matrix = PWM.__pcm_to_pfm(self.__matrix)
-            print(self.__matrix)
             self.__matrix = PWM.__pfm_to_pwm(self.__matrix)
         if form == 'pfm':
             self.__matrix = PWM.__read_matrix(path)

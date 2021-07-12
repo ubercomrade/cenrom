@@ -41,18 +41,17 @@ def main():
     elif organism == 'tair10':
         path_to_promoters = os.path.join(this_dir, "promoters", "tair10.fasta")
 
-    #fasta = read_fasta(fasta_path)
-    #background = shuffle_fasta(fasta, ntimes)
+    fasta = read_fasta(fasta_path)
+    background = shuffle_fasta(fasta, ntimes)
     pwm = PWM(matrix_path, form='pcm')
-    # pwm.calculate_table(path_to_promoters)
-    # threshold = pwm.choose_threshold(fpr_threshold)
-    # scores, number_of_sites = pwm.calculate_scores_upper_threshold(fasta, threshold)
-    # real_fraction = len(scores) / number_of_sites
-    # background_scores, background_number_of_sites = pwm.calculate_scores_upper_threshold(background, threshold)
-    # background_fraction = len(background_scores) / background_number_of_sites
-    # enrichment = real_fraction / background_fraction
-    # print(f'{real_fraction}\t{background_fraction}\t{enrichment}')
-    print(pwm)
+    pwm.calculate_table(path_to_promoters)
+    threshold = pwm.choose_threshold(fpr_threshold)
+    scores, number_of_sites = pwm.calculate_scores_upper_threshold(fasta, threshold)
+    real_fraction = len(scores) / number_of_sites
+    background_scores, background_number_of_sites = pwm.calculate_scores_upper_threshold(background, threshold)
+    background_fraction = len(background_scores) / background_number_of_sites
+    enrichment = real_fraction / background_fraction
+    print(f'{real_fraction}\t{background_fraction}\t{enrichment}')
 
 if __name__ == '__main__':
     main()
