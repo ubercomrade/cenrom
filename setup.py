@@ -7,7 +7,8 @@ with open("README.md", "r") as fh:
 
 
 install_requires = ['setuptools>=18.0', 'cython']
-ext_modules = [Extension(['lib.functions', 'lib.pwm'], sources=['lib/functions.pyx', 'lib/pwm.pyx'],)]
+ext_modules = [Extension('lib.functions', sources=['lib/functions.pyx'],),
+               Extension('lib.pwm', sources=['lib/pwm.pyx'],)]
 
 
 setup(
