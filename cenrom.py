@@ -14,8 +14,8 @@ def parse_args():
          help='promoters of organism (hg38, mm10, tair10)')
     parser.add_argument('-n', '--ntimes', action='store', default=100, type=int, dest='ntimes',
         help='N times FASTA for background')
-    parser.add_argument('-f', '--format', action='store', choices=['homer', 'cisbp'], metavar='N',
-        dest='format', default='homer', help='format of input PCM')
+    parser.add_argument('-f', '--format', action='store', choices=['homer', 'cisbp', 'hocomoco'], metavar='N',
+        dest='format', default='homer', help='format of input PFM (HOMER, CISBP) or PCM (HOCOMOCO)')
     parser.add_argument('-t', '--threshold', action='store', type=float, dest='threshold',
                         required=False, default=1.9*10**(-4), help='threshold based on FPR, def=1.9*10^(-4)')
     if len(sys.argv) == 1:
@@ -43,7 +43,7 @@ def main():
 
     fasta = read_fasta(fasta_path)
     background = shuffle_fasta(fasta, ntimes)
-    pwm = PWM(matrix_path, form='pcm')
+    pwm = PWM(matrix_path, form=matrix_format)
     pwm.calculate_table(path_to_promoters)
     threshold = pwm.choose_threshold(fpr_threshold)
     scores, number_of_sites = pwm.calculate_scores_upper_threshold(fasta, threshold)
