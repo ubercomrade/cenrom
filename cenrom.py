@@ -42,7 +42,7 @@ def main():
         path_to_promoters = os.path.join(this_dir, "promoters", "tair10.fasta")
 
     fasta = read_fasta(fasta_path)
-    background = shuffle_fasta(fasta, times)
+    background = shuffle_fasta(fasta, ntimes)
     pwm = PWM(path, form='pcm')
     pwm.calculate_table(path_to_promoters)
     threshold = pwm.choose_threshold(fpr_threshold)
