@@ -18,7 +18,7 @@ cdef class PWM:
             self.__matrix = PWM.__pcm_to_pfm(self.__matrix)
             self.__matrix = PWM.__pfm_to_pwm(self.__matrix)
         if form == 'cisbp':
-            self.__matrix = PWM.__read_cisbp(path, 1)
+            self.__matrix = PWM.__read_matrix(path, 1)
             self.__matrix = PWM.__pfm_to_pwm(self.__matrix)
         if form == 'homer':
             self.__matrix = PWM.__read_matrix(path, 0)
