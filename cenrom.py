@@ -15,7 +15,7 @@ def parse_args():
     parser.add_argument('-n', '--ntimes', action='store', default=100, type=int, dest='ntimes',
         help='N times FASTA for background')
     parser.add_argument('-f', '--format', action='store', choices=['homer', 'cisbp', 'hocomoco'], metavar='N',
-        dest='format', default='homer', help='format of input PFM (HOMER, CISBP) or PCM (HOCOMOCO)')
+        dest='format', default='homer', help='[homer, cisbp, hocomoco] format of input PFM (HOMER, CISBP) or PCM (HOCOMOCO)')
     parser.add_argument('-t', '--threshold', action='store', type=float, dest='threshold',
                         required=False, default=1.9*10**(-4), help='threshold based on FPR, def=1.9*10^(-4)')
     if len(sys.argv) == 1:
