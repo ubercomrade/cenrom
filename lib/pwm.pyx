@@ -71,7 +71,7 @@ cdef class PWM:
             for i in range(len(pcm[key])):
                 number_of_sites[i] += pcm[key][i]
         pfm = {'A':[], 'C':[], 'G':[], 'T':[]}
-        nuc_pseudo = 1/4
+        nuc_pseudo = 0.25
         for i in range(matrix_length):
             for nuc in pcm.keys():
                 pfm[nuc].append((pcm[nuc][i] + nuc_pseudo) / (number_of_sites[i] + 1))
