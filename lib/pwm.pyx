@@ -172,19 +172,19 @@ cdef class PWM:
     
     def calculate_table(self, str path):
         cdef list peaks, scores
-        cdef float threshold, score, last_score, fpr, count
-        cdef int number_of_sites
+        cdef float threshold, score, last_score, fpr
+        cdef int number_of_sites, count
         peaks = self.__read_seqs_with_complement(path)
         threshold = self.__to_score(0.5)
         scores, number_of_sites = self.calculate_scores_upper_threshold(peaks, threshold)
         scores.sort(reverse=True)
         last_score = scores[0]
-        count = 0.0
+        count = 0
         fpr = 0.0
         table = list()
         while fpr <= 0.0005:
-            count += 1.0
-            fpr = count/number_of_sites
+            count += 1
+            fpr = float(count)/number_of_sites
             score = scores[count]
             if score != last_score:
                 table.append((last_score, fpr))
