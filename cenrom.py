@@ -8,7 +8,7 @@ from lib.functions import read_fasta, shuffle_fasta
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('fasta', action='store', help='path to BED file')
+    parser.add_argument('fasta', action='store', help='path to FASTA file')
     parser.add_argument('matrix', action='store', help='path to PCM file')
     parser.add_argument('promoters', action='store', choices=['mm10', 'hg38', 'tair10'], metavar='N',
          help='promoters of organism (hg38, mm10, tair10)')
