@@ -13,15 +13,18 @@ cdef class PWM:
         list __table
     
     def __init__(self, path, form):
-        if form == 'pcm':
-            self.__matrix = PWM.__read_matrix(path)
+        if form == 'hocomoco':
+            self.__matrix = PWM.__read_matrix(path, 0)
             self.__matrix = PWM.__pcm_to_pfm(self.__matrix)
             self.__matrix = PWM.__pfm_to_pwm(self.__matrix)
-        if form == 'pfm':
-            self.__matrix = PWM.__read_matrix(path)
+        if form == 'cisbp':
+            self.__matrix = PWM.__read_cisbp(path, 1)
+            self.__matrix = PWM.__pfm_to_pwm(self.__matrix)
+        if form == 'homer':
+            self.__matrix = PWM.__read_matrix(path, 0)
             self.__matrix = PWM.__pfm_to_pwm(self.__matrix)
         if form == 'pwm':
-            self.__matrix = PWM.__read_matrix(path)
+            self.__matrix = PWM.__read_matrix(path, 0)
         self.__length = len(self.__matrix['A'])
         self.__table = list()
     
@@ -38,12 +41,12 @@ cdef class PWM:
         return self.__table
     
     @staticmethod
-    def __read_matrix(path):
+    def __read_matrix(path, pos):
         matrix = {'A':[], 'C':[], 'G':[], 'T':[]}
         with open(path) as file:
             file.readline()
             for line in file:
-                line = line.strip().split('\t')
+                line = line.strip().split('\t')[pos:]
                 for letter, value in zip(matrix.keys(), line):
                     matrix[letter].append(float(value))
         return matrix
