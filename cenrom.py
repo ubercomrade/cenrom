@@ -46,7 +46,8 @@ def main():
     pwm = PWM(matrix_path, form=matrix_format)
     pwm.calculate_table(path_to_promoters)
     threshold = pwm.choose_threshold(fpr_threshold)
-    scores, number_of_sites = pwm.calculate_scores_upper_threshold(fasta, threshold)
+    scores = pwm.calculate_scores_upper_threshold(fasta, threshold)
+    number_of_sites = get_number_of_sites(fasta, pwm.length)
     real_fraction = len(scores) / number_of_sites
     background_scores, background_number_of_sites = pwm.calculate_scores_upper_threshold(background, threshold)
     background_fraction = len(background_scores) / background_number_of_sites
