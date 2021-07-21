@@ -1,19 +1,16 @@
-"""pipeline for chip-seq analisys"""
-from setuptools import setup, Extension
-from Cython.Build import cythonize
+"""tool"""
+from setuptools import setup
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 
-install_requires = ['setuptools>=18.0', 'cython']
-ext_modules = [Extension('lib.functions', sources=['lib/functions.pyx'],),
-               Extension('lib.pwm', sources=['lib/pwm.pyx'],)]
+install_requires = ['setuptools>=18.0', 'MOODS-python']
 
 
 setup(
     name='cenrom',
-    version='0.0.1',
+    version='0.0.2',
     description='calculate enrichment of matrix in data',
     author='Anton Tsukanov',
     author_email='tsukanov@bionet.nsc.ru',
@@ -30,8 +27,6 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: Unix",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         'Programming Language :: Cython',
@@ -41,6 +36,5 @@ setup(
     include_package_data=True,
     install_requires=install_requires,
     setup_requires=install_requires,
-    python_requires='>=3.6',
-    ext_modules = cythonize(ext_modules)
+    python_requires='>=3.7',
 )
