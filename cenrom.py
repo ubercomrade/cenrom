@@ -49,7 +49,8 @@ def main():
     scores = pwm.calculate_scores_upper_threshold(fasta, threshold)
     number_of_sites = get_number_of_sites(fasta, pwm.length)
     real_fraction = len(scores) / number_of_sites
-    background_scores, background_number_of_sites = pwm.calculate_scores_upper_threshold(background, threshold)
+    background_scores = pwm.calculate_scores_upper_threshold(background, threshold)
+    background_number_of_sites = get_number_of_sites(background, pwm.length)
     background_fraction = len(background_scores) / background_number_of_sites
     enrichment = real_fraction / background_fraction
     print(f'{real_fraction}\t{background_fraction}\t{enrichment}')
