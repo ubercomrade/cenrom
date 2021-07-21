@@ -3,7 +3,7 @@ import os.path
 import sys
 import argparse
 from lib.pwm import PWM
-from lib.functions import read_fasta, shuffle_fasta
+from lib.functions import read_fasta, shuffle_fasta, get_number_of_sites
 
 
 def parse_args():
