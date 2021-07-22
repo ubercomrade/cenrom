@@ -9,7 +9,7 @@ from lib.functions import read_fasta, shuffle_fasta, get_number_of_sites
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('fasta', action='store', help='path to FASTA file')
-    parser.add_argument('matrix', action='store', help='path to PCM file')
+    parser.add_argument('matrix', action='store', help='path to MATRIX file (PCM or PFM depend on source)')
     parser.add_argument('promoters', action='store', choices=['mm10', 'hg38', 'tair10'], metavar='N',
          help='promoters of organism (hg38, mm10, tair10)')
     parser.add_argument('-n', '--ntimes', action='store', default=100, type=int, dest='ntimes',
