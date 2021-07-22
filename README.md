@@ -63,17 +63,22 @@ Value of N can be _hg38_ or _mm10_ or _tair10_. Depend on organism used in resea
 
 ### Flag arguments description
 
+**First flag**:
+
 ```
 -n NTIMES, --ntimes NTIMES                N times FASTA for background, def=100
 ```
 How many times the background will be larger than the original FASTA file
+
+**Second flag**:
+
 
 ```
 -f N, --format N      [homer, cisbp, hocomoco]
 ```
 Choose format of your matrix.
 
-####Examples:
+### Format examples
 **homer**:
 ```
 >RTWCAATGWATC	1-RTWCAATGWATC,BestGuess:EIL4(EIL)/Tomato-EIL4-ChIP-Seq(GSE116581)/Homer(0.983)	8.109841	-1085.337425	0	T:449.0(55.85%),B:1272.8(2.69%),P:1e-471
@@ -106,7 +111,7 @@ Pos	A	C	G	T
 10	0.23482140428296	0.292605487709977	0.182879093545217	0.289694014461846
 ```
 
-**HOCOMOCO (PCM)**
+**HOCOMOCO**
 ```
 >ATF4_HUMAN.H11MO.0.A
 199.00000000000003	32.00000000000001	191.00000000000003	78.00000000000001
@@ -123,6 +128,8 @@ Pos	A	C	G	T
 8.000000000000002	146.00000000000003	65.00000000000001	281.00000000000006
 ```
 
+**Third flag**:
+
 ```
 -t THRESHOLD, --threshold THRESHOLD
 ```
@@ -130,8 +137,8 @@ The argument `-t/--threshold` sets up FPR for choosing threshold score based on 
 
 ## Useful links
 
- * [cisbp](http://cistrome.org/ap/)
- * [hocomoco](http://cistrome.org/ap/)
+ * [cisbp](http://cisbp.ccbr.utoronto.ca/)
+ * [hocomoco](https://hocomoco11.autosome.ru/)
 
 ## Reference
 
