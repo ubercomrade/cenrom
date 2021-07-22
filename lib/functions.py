@@ -24,15 +24,16 @@ def complement(seq):
     seq = seq[::-1]
     return(seq)
 
-    
+
 def shuffle_fasta(fasta, times):
     out = []
     for seq in fasta:
-        seq = np.asarray(list(seq))
+        aseq = np.asarray(list(seq), dtype=str)
         for i in range(times):
-            out.append(np.copy(seq))
-            np.random.shuffle(out[-1])
-    out = [''.join(i) for i in out]
+            new_seq = aseq[:]
+            np.random.shuffle(new_seq)
+            out.append(new_seq)
+    out = [''.join(i.tolist()) for i in out]
     return(out)
 
 
