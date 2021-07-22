@@ -45,13 +45,12 @@ class PWM:
     @staticmethod
     def __pfm_to_pwm(pfm):
         background = 0.25
-        pwm = np.log10(pfm / background)
+        pwm = np.log2(pfm / background)
         return pwm
 
     @staticmethod
     def __pcm_to_pfm(pcm):
-        matrix_length = pcm.shape[1]
-        number_of_sites = pcm.max(axis=0)
+        number_of_sites = pcm.sum(axis=0)
         nuc_pseudo = 0.25
         pfm = (pcm + nuc_pseudo) / (number_of_sites + 1)
         return pfm
