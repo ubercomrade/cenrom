@@ -11,7 +11,7 @@ class PWM:
             self.__matrix = PWM.__pfm_to_pwm(self.__matrix)
         if form == 'cisbp':
             self.__matrix = PWM.__read_matrix(path, 1)
-            self.__matrix = PWM.__pfm_to_pwm(self.__matrix)
+            self.__matrix = PWM.__pfm_to_pwm_cisbp(self.__matrix)
         if form == 'homer':
             self.__matrix = PWM.__read_matrix(path, 0)
             self.__matrix = PWM.__pfm_to_pwm(self.__matrix)
@@ -46,6 +46,12 @@ class PWM:
     def __pfm_to_pwm(pfm):
         background = 0.25
         pwm = np.log2(pfm / background)
+        return pwm
+
+    @staticmethod
+    def __pfm_to_pwm_cisbp(pfm):
+        background = 0.25
+        pwm = np.log2(pfm + 0.01 / background)
         return pwm
 
     @staticmethod
