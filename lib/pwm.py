@@ -51,7 +51,7 @@ class PWM:
     @staticmethod
     def __pfm_to_pwm_cisbp(pfm):
         background = 0.25
-        pwm = np.log2(pfm + 0.01 / background)
+        pwm = np.log2((pfm + 0.01) / background)
         return pwm
 
     @staticmethod
