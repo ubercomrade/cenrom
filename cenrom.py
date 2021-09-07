@@ -52,6 +52,8 @@ def main():
     background_scores = pwm.calculate_scores_upper_threshold(background, threshold)
     background_number_of_sites = get_number_of_sites(background, pwm.length)
     background_fraction = len(background_scores) / background_number_of_sites
+    if background_fraction == 0.0:
+        background_fraction = 1e-6
     enrichment = real_fraction / background_fraction
     print(f'{real_fraction}\t{background_fraction}\t{enrichment}')
 
