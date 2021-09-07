@@ -54,6 +54,8 @@ def main():
     background_fraction = len(background_scores) / background_number_of_sites
     if background_fraction == 0.0:
         background_fraction = 1e-6
+    if real_fraction == 0.0:
+        real_fraction = 1e-6
     enrichment = real_fraction / background_fraction
     print(f'{real_fraction}\t{background_fraction}\t{enrichment}')
 
