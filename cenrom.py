@@ -10,8 +10,8 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('fasta', action='store', help='path to FASTA file')
     parser.add_argument('matrix', action='store', help='path to MATRIX file (PCM or PFM depend on source)')
-    parser.add_argument('promoters', action='store', choices=['mm10', 'hg38', 'tair10'], metavar='N',
-         help='promoters of organism (hg38, mm10, tair10)')
+    parser.add_argument('promoters', action='store', choices=['mm10', 'hg38', 'tair10', 'b73v5', 'rnor6'], metavar='N',
+         help='promoters of organism (hg38, mm10, tair10, rnor6, b73v5)')
     parser.add_argument('-n', '--ntimes', action='store', default=100, type=int, dest='ntimes',
         help='N times FASTA for background')
     parser.add_argument('-f', '--format', action='store', choices=['homer', 'cisbp', 'hocomoco'], metavar='N',
@@ -40,6 +40,10 @@ def main():
         path_to_promoters = os.path.join(this_dir, "promoters", "hg38.fasta")
     elif organism == 'tair10':
         path_to_promoters = os.path.join(this_dir, "promoters", "tair10.fasta")
+    elif organism == 'b73v5':
+        path_to_promoters = os.path.join(this_dir, "promoters", "b73v5.fasta")
+    elif organism == 'rnor6':
+        path_to_promoters = os.path.join(this_dir, "promoters", "rnor6.fasta")
 
     fasta = read_fasta(fasta_path)
     background = shuffle_fasta(fasta, ntimes)
