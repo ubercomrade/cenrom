@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 
-install_requires = ['setuptools>=18.0', 'MOODS-python']
+install_requires = ['wheel', 'setuptools>=18.0', 'MOODS-python']
 
 
 setup(
