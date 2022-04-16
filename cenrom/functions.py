@@ -1,21 +1,5 @@
-import lzma
 import numpy as np
 
-
-def read_promoters(path):
-    container = list()
-    letters = {'A', 'C', 'G', 'T'}
-    with lzma.open(path) as file:
-        for line in file:
-            line = line.decode()
-            line = line.strip().upper()
-            if not line.startswith('>'):
-                seq = ''.join([l if l in letters else 'N' for l in line])
-                complement_seq = complement(seq)
-                container.append(seq)
-                container.append(complement_seq)
-    return(container)
-    
     
 def read_fasta(path):
     container = list()

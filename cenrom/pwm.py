@@ -1,3 +1,4 @@
+import lzma
 import numpy as np
 import MOODS.tools
 import MOODS.scan
@@ -86,8 +87,9 @@ class PWM:
     def __read_seqs_with_complement(self, path):
         container = list()
         letters = {'A', 'C', 'G', 'T'}
-        with open(path) as file:
+        with lzma.open(path) as file:
             for line in file:
+                line = line.decode()
                 line = line.strip().upper()
                 if not line.startswith('>'):
                     seq = ''.join([l if l in letters else 'N' for l in line])

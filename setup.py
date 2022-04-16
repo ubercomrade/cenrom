@@ -1,4 +1,4 @@
-"""tool"""
+"""cenrom"""
 from setuptools import setup
 
 with open("README.md", "r") as fh:
@@ -10,15 +10,15 @@ install_requires = ['setuptools>=18.0', 'MOODS-python']
 
 setup(
     name='cenrom',
-    version='0.0.2',
+    version='0.0.4',
     description='calculate enrichment of matrix in data',
     author='Anton Tsukanov',
     author_email='tsukanov@bionet.nsc.ru',
-    url='http://github.com/ubercomrade/pipeline',    
+    url='http://github.com/ubercomrade/cenrom',    
     package_dir={'cenrom' : 'cenrom'},
     packages=['cenrom'],
     package_data={
-        'promoters': ['*.fasta'],
+        'promoters': ['*.xz'],
     },
     scripts=['bin/cenrom.py',],
     classifiers=[
@@ -37,5 +37,5 @@ setup(
     include_package_data=True,
     install_requires=install_requires,
     setup_requires=install_requires,
-    python_requires='>=3.7',
+    python_requires='>=3.8',
 )

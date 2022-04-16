@@ -38,15 +38,15 @@ def main():
     
     this_dir, this_filename = os.path.split(__file__)
     if organism == 'mm10':
-        path_to_promoters = os.path.join(this_dir, "promoters", "mm10.fasta")
+        path_to_promoters = os.path.join(this_dir, "promoters", "mm10.fasta.xz")
     elif organism == 'hg38':
-        path_to_promoters = os.path.join(this_dir, "promoters", "hg38.fasta")
+        path_to_promoters = os.path.join(this_dir, "promoters", "hg38.fasta.xz")
     elif organism == 'tair10':
-        path_to_promoters = os.path.join(this_dir, "promoters", "tair10.fasta")
+        path_to_promoters = os.path.join(this_dir, "promoters", "tair10.fasta.xz")
     elif organism == 'b73v5':
-        path_to_promoters = os.path.join(this_dir, "promoters", "b73v5.fasta")
+        path_to_promoters = os.path.join(this_dir, "promoters", "b73v5.fasta.xz")
     elif organism == 'rnor6':
-        path_to_promoters = os.path.join(this_dir, "promoters", "rnor6.fasta")
+        path_to_promoters = os.path.join(this_dir, "promoters", "rnor6.fasta.xz")
 
     fasta = read_fasta(fasta_path)
     if os.path.exists(background_path):
