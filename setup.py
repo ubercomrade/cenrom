@@ -14,12 +14,13 @@ setup(
     description='calculate enrichment of matrix in data',
     author='Anton Tsukanov',
     author_email='tsukanov@bionet.nsc.ru',
-    url='http://github.com/ubercomrade/pipeline',
-    package_dir={'lib' : 'lib'},
-    packages=[
-        'lib',
-    ],
-    scripts=['cenrom.py',],
+    url='http://github.com/ubercomrade/pipeline',    
+    package_dir={'cenrom' : 'cenrom'},
+    packages=['cenrom'],
+    package_data={
+        'promoters': ['*.fasta'],
+    },
+    scripts=['bin/cenrom.py',],
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Console",
