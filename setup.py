@@ -20,7 +20,7 @@ setup(
     package_data={
         'promoters': ['*.xz'],
     },
-    scripts=['bin/cenrom.py',],
+    scripts=['bin/Cenrom.py',],
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Console",
