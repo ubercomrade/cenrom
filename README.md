@@ -20,19 +20,20 @@ pip3 install -e .
 The command `pipeline.py -h` return:
 
 ```
-usage: cenrom.py [-h] [-n NTIMES] [-f N] [-t THRESHOLD] fasta matrix N
+usage: Cenrom [-h] [-b BACKGROUND] [-n NTIMES] [-f N] [-t THRESHOLD] fasta matrix N
 
 positional arguments:
   fasta                 path to FASTA file
-  matrix                path to MATRIX file (pcm or pfm depend on source)
-  N                     promoters of organism (hg38, mm10, tair10)
+  matrix                path to MATRIX file (PCM or PFM depend on source)
+  N                     promoters of organism (hg38, mm10, tair10, rnor6, b73v5)
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
+  -b BACKGROUND, --background BACKGROUND
+                        Path to background. if not given peaks are shuffled
   -n NTIMES, --ntimes NTIMES
-                        N times FASTA for background, def=100
-  -f N, --format N      [homer, cisbp, hocomoco] format of input PFM (HOMER,
-                        CISBP) or PCM (HOCOMOCO)
+                        N times FASTA for background. It`s used when "--background" is not given
+  -f N, --format N      [homer, cisbp, hocomoco] format of input PFM (HOMER, CISBP) or PCM (HOCOMOCO)
   -t THRESHOLD, --threshold THRESHOLD
                         threshold based on FPR, def=1.9*10^(-4)
 ```
